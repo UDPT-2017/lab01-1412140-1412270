@@ -1,0 +1,147 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="jquery-3.1.1.min.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"> </script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+		<script type="text/javascript">
+			function hide_show(){
+				var e = document.getElementById("topNavBar");
+				if(e.style.display == 'block')
+					e.style.display = 'none';
+				else
+					e.style.display = 'block';
+			}
+		</script>
+		<title>
+			NewbiInBoostrap
+		</title>
+	</head>
+	<body>
+		<div class="container">
+			<header id="toper">
+				<div class="topnav" id="topNavBar">
+					<a class="active"> Home </a>
+					<a href="/albums"> Albums </a>
+					<a href="/about"> About </a>
+					<a href="/blog"> Blog </a>
+					<div class="active" id="log" style="float: right; background-color: brown;">
+						<% if(dn == "1") { %>
+							<a id="userLogin" style="color: black; margin: 0;">
+								<%=nick %>
+							</a> <% }
+						  else { %>
+							<button type="button" class "btn btn-primary" id="btnLogin" data-toggle="modal" data-target="#loginModal"> Login </button>
+						<% } %>
+					</div>
+				</div>
+				<button type="button" class="btn btn-primary btn-md" id="hideBt" onclick="hide_show"> show </button>
+			</header>
+			<p> <img src="https://s-media-cache-ak0.pinimg.com/originals/2d/c1/24/2dc124c883a8d19dd9d40fc809df10be.jpg" id="anhbia"> </p>
+				<div class="col-sm-2">
+					<div id="lMenu" class="nav-sidebar">
+						<ul class="nav" id="menuList">
+							<li> <a href=""> tanathan </a> </li>
+							<li> <a href=""> something </a> </li>
+							<li> <a href=""> something </a> </li>
+							<li> <a href=""> something </a> </li>
+						</ul>
+					</div>
+				</div>
+			<footer id="foot">
+				contact me now	
+			</footer>
+			<form action="" method="POST" enctype="application/x-www-form-urlencoded">
+				<div class="modal fade" id="loginModal" role="dialog" >
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title"> Dang nhap </h4> 
+							</div>
+							<div class="modal-body">
+								<form>
+								    <div class="form-group">
+								    	<label for="nickname">Ten dang nhap:</label>
+								      	<input type="text" class="form-control" name="txtNick" id="nick" placeholder="Nhap ten nguooi dung">
+								    </div>
+								    <div class="form-group">
+								      	<label for="password">Password:</label>
+								      	<input type="password" class="form-control" name="txtPass" id="pass" placeholder="Nhap mat khau">
+								    </div>
+								    <div>
+								    	<input type="submit" class"btn btn-default" value="Dang nhap">
+								    </div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
+
+<style>
+	#topNavBar {
+		background-color: black;
+		padding: 14px 14px;
+		text-align: center;
+		display: block;
+	}
+
+	@media only screen and (max-width: 992px){
+		#topNavBar {
+			display: none;
+		}
+	}
+
+	@media only screen and (min-width: 992px){
+		#hideBt {
+			display: none;
+		}
+	}
+
+	.topnav a {
+		background-color: green;
+		padding: 14px 14px;
+		color: white;
+		text-decoration: none;
+		width: auto;
+	}
+
+	.topnav a:hover {
+	 	background-color: white;
+	  	color: black;
+	}
+
+	#anhbia {
+		float: center;
+		margin-left: 450px;
+		width: 30%;
+		height: 50%;
+	}
+
+	#lMenu {
+		width: 100%;
+    	border-right: 1px solid #ddd;
+	}
+
+	footer {
+		padding: 1em;
+		background-color: #d0d5dd;
+		clear: both;
+	    bottom: 0;
+	    width: 100% ;
+	    text-align: center;
+	}
+
+	#btnLogin {
+		float: right;
+	}
+
+	.container {
+		width: 100%;
+	}
+</style>

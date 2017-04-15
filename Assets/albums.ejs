@@ -1,0 +1,193 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<script src="jquery-3.1.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<base href="http://localhost:3000">
+	</head>
+	<body>
+		<header id="toper">
+			<div class="topnav" id="topNavBar">
+				<a class="active"> Home </a>
+				<a href="/albums"> Albums </a>
+				<a href="/about"> About </a>
+				<a href="/blog"> Blog </a>
+			</div>
+			<button type="button" class="btn btn-primary btn-md" id="hideBt" onclick="hide_show"> show </button>
+		</header>
+			<nav class="col-sm-2">
+				<div id="lMenu" class="nav-sidebar">
+					<ul class="nav" id="menuList">
+						<li> <a href=""> tanathan </a> </li>
+						<li> <a href=""> something </a> </li>
+						<li> <a href=""> something </a> </li>
+						<li> <a href=""> something </a> </li>
+					</ul>
+				</div>
+			</nav>
+			<h2> ---ALBUMS--- </h2>
+			<div id="albums">
+				<div class="col-md-3">
+					<div class="thumbnail" >
+						<a id="a1"> <img src="pictures/1.jpg" id="img1" onclick="myFunction()"> </a>
+						<div class="caption">
+							<p> this is me </p>
+						</div>
+					</div>
+					<div class="modal fade" id="albumModal1" role="dialog">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+				          			<button type="button" class="close" data-dismiss="modal">&times;</button>
+				          			<h4 class="modal-title">ALbum 1</h4>
+				        		</div>
+								<div class="modal-body">
+									<div class="row">
+										<div class="col-md-3">
+											<div class="thumbnail">
+												<a> <img src="pictures/11.jpg" onclick="modalPicture('pictures/11.jpg')"> </a>
+												<p> KietLuu </p>
+												<p> Views: 233 </p>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="thumbnail">
+												<a> <img src="pictures/12.jpg" onclick="modalPicture('pictures/12.jpg')"> </a>
+												<p> KietLuu </p>
+												<p> Views: 233 </p>
+											</div>
+										</div>
+										<div class="col-md-3">
+											<div class="thumbnail">
+												<a> <img src="pictures/13.jpg" onclick="modalPicture('pictures/13.jpg')"> </a>
+												<p> KietLuu </p>
+												<p> Views: 233 </p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> 
+				<div class="col-md-3">
+					<div class="thumbnail" >
+						<a> <img src="pictures/2.jpg"> </a>
+						<div class="caption">
+							<p> this is me </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="thumbnail" >
+						<a> <img src="pictures/4.png"> </a>
+						<div class="caption">
+							<p> this is me </p>
+						</div>
+					</div>
+				</div> 
+				<div class="col-md-3">
+					<div class="thumbnail">
+						<a> <img src="pictures/3.png"> </a>
+						<div class="caption">
+							<p> this is me </p>
+						</div>
+					</div>
+				</div> 
+			</div>
+			<div id="myModal" class="modal fade">
+				<div class="modal-content">
+					<div class="modal-header">
+	          			<button type="button" class="close" data-dismiss="modal">&times;</button>
+	          			<h4 class="modal-title">ALbum 1</h4>
+	        		</div>
+					<div class="modal-body">
+						<div class="thumbnail">
+				  			<img id="img01">
+				  		</div>
+				</div>
+			</div>
+
+			<script>
+				var modalImg = document.getElementById("img01");
+				var modal = document.getElementById("myModal");
+				function myFunction(){
+					$("#albumModal1").modal();
+				}
+				function modalPicture(picSrc){
+					modalImg.src = picSrc;
+					$("#myModal").modal();
+				}
+			</script>
+	</body>
+</html>
+
+<style>
+	#albums {
+		height: 50px;	
+		margin-left: 220px;	
+	}
+
+	#albumModal1 {
+		height: auto;
+
+	}
+
+	#topNavBar {
+		background-color: black;
+		padding: 14px 14px;
+		text-align: center;
+		display: block;
+	}
+
+	@media only screen and (max-width: 992px){
+		#topNavBar {
+			display: none;
+		}
+	}
+
+	@media only screen and (min-width: 992px){
+		#hideBt {
+			display: none;
+		}
+	}
+
+	.topnav a {
+		background-color: green;
+		padding: 14px 14px;
+		color: white;
+		text-decoration: none;
+		width: auto;
+	}
+
+	.topnav a:hover {
+	 	background-color: white;
+	  	color: black;
+	}
+
+	#lMenu {
+		margin-top: 100px;
+		width: 100%;
+    	border-right: 1px solid #ddd;
+    	float: left;
+    	margin-left: 10px;
+	}
+
+	#img01 {
+		margin: auto;
+	    display: block;
+	    max-width: 70%;
+	}
+
+	#myModal {
+		display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.9);
+	    max-width: 70%;
+	    max-height: 80%;
+	}
+/* Modal Content (image) */
+</style>

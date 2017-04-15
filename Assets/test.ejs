@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> data from postgres </title>
+	</head>
+	<body>
+		<table width="500" border="1">
+			<tr>
+				<td> ID </td>
+				<td> Nick Name </td>
+				<td> Password </td>
+			</tr>
+			<tr>
+				<td> <%= danhsach.rows[0].id %> </td>
+				<td> <%= danhsach.rows[0].nickname %> </td>
+				<td> <%= danhsach.rows[0].password %> </td>
+			</tr>
+		</table>
+	</body>
+</html>
