@@ -22,6 +22,10 @@ var config = {
 }
 var pool = new pg.Pool(config);
 
+var dn = 0;
+var nick;
+var pass;
+
 app.get("/", function(req, res) {
 	var nick = "";
 	var dn = 0;
@@ -30,7 +34,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/albums", function(req, res){
-	res.render("albums");
+	res.render("albums", {dn:dn, nick:nick});
 });
 
 app.get("/signup", function(req, res){
@@ -38,11 +42,11 @@ app.get("/signup", function(req, res){
 });
 
 app.get("/about", function(req, res){
-	res.render("about");
+	res.render("about", {dn:dn, nick:nick});
 });
 
 app.get("/blog", function(req, res){
-	res.render("blog");
+	res.render("blog", {dn:dn, nick:nick});
 });
 
 app.post("/signup", urlencodedParser, function(req, res){
@@ -50,8 +54,8 @@ app.post("/signup", urlencodedParser, function(req, res){
 		if(err) { 
 			return console.error('error fetching client from pool', err);
 		}
-		var nick = req.body.txtNick;
-		var pass = req.body.txtPass;
+		nick = req.body.txtNick;
+		pass = req.body.txtPass;
 		var dn = 1;
 		client.query("INSERT INTO userl(nickname, password) VALUES('" + nick + "', '" + pass + "')", function(err, result){
 			done();
@@ -65,15 +69,14 @@ app.post("/signup", urlencodedParser, function(req, res){
 	});
 });
 
-app.get("/albums", urlencodedParser, function(req, res){
+app.post("/", urlencodedParser, function(req, res){
 	pool.connect(function(err, client, done) {
 		if(err) { 
 			return console.error('error fetching client from pool', err);
 		}
-		var nick = req.body.txtNick;
-		var pass = req.body.txtPass;
+		nick = req.body.txtNick;
+		pass = req.body.txtPass;
 		client.query("select count(*) from userl where nickname='" + nick + "' and password='" + pass + "'", function(err, result){
-			var dn = 0;
 			done();
 			if(err) {
 				console.log("xay ra loi");
@@ -89,25 +92,6 @@ app.get("/albums", urlencodedParser, function(req, res){
 				console.log("dang nhap that bai");
 				dn = 0;
 				res.render("trangchu", {dn:dn, nick:nick});
-			}
-		});
-	});
-});
-
-app.post("/albums", urlencodedParser, function(req, res){
-	pool.connect(function(err, client, done) {
-		if(err) { 
-			return console.error('error fetching client from pool', err);
-		}
-		var nick = req.body.txtNick;
-		var pass = req.body.txtPass;
-		client.query("", function(err, result){
-			var dn = 0;
-			done();
-			if(err) {
-				console.log("xay ra loi");
-				res.end();
-				return console.error('error running query', err);
 			}
 		});
 	});

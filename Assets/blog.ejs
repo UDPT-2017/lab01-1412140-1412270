@@ -9,49 +9,70 @@
 		<script type="text/javascript"> </script>
 	</head>
 	<body>
-		<div id="toper">
-			<div class="topnav" id="topNavBar">
-				<a href="#1"> Choosen 1 </a>
-				<a href="#2"> Choosen 2 </a>
-				<a href="#3"> Choosen 3 </a>
-				<a href="#4"> Choosen 4 </a>
-			</div>
-		</div>
-		<ol class="breadcrumb">
-			<li> <a href="http://localhost:3000/blog"> Home </a> </li>
-			<li class="active"> Blog </li>
-		</ol>
 		<div id="main">
-			<a> <div id="lMenu" class="col-md-2">
-				<p href="1"> Home </p>
-				<p href="2"> Albums </p>
-				<p href="3"> About </p>
-				<p href="4"> Blog </p>
-			  </div> </a>
-			<a> <div id="mainPost">
-					<h2 style="margin-left: 350px;"> Hot Post Today </h2>
-					<div class="col-md-6">
-						<div id="post" class="thumbnail">
-							<a> <img src="http://media.esports.vn/esports/2015/07/20/magnus.jpg"> </a>
-							<a> <strong style="color: black;"> Magnus The Greatest </strong> </a>
-							<p class="post-info small caps"> Post by NeverMore </p>
-							<div class="post-text small">
-								Với việc có 5 team Trung Quốc tham gia, meta của DAC có chiều hướng ảnh hưởng của người Tàu với sự phổ biến của Magnus và Lifestealer.
-							</div>
-							<p class="post-info small caps"> Views: 155 </p>
-						</div>
-						<div id="post" class="thumbnail">
-							<a> <img src="http://media.esports.vn/esports/2015/07/20/magnus.jpg"> </a>
-							<a> <strong style="color: black;"> Magnus The Greatest </strong> </a>
-							<p class="post-info small caps"> Post by NeverMore </p>
-							<div class="post-text small">
-								Với việc có 5 team Trung Quốc tham gia, meta của DAC có chiều hướng ảnh hưởng của người Tàu với sự phổ biến của Magnus và Lifestealer.
-							</div>
-							<p class="post-info small caps"> Views: 155 </p>
+			<div class="container">
+				<header id="toper">
+					<div class="topnav" id="topNavBar">
+						<a class="active"> Home </a>
+						<a href="/albums"> Albums </a>
+						<a href="/about"> About </a>
+						<a href="/blog"> Blog </a>
+						<div class="active" id="log" style="float: right; background-color: brown;">
+							<% if(dn == "1") { %>
+								<a id="userLogin" style="color: black; margin: 0;">
+									<%=nick %>
+								</a> 
+								<button type="button" class "btn btn-primary" id="btnLogout" data-toggle="modal" data-target="#loginModal"> Logout </button> <% }
+							  else { %>
+								<button type="button" class "btn btn-primary" id="btnLogin" data-toggle="modal" data-target="#loginModal"> Login </button>
+							<% } %>
 						</div>
 					</div>
-				</div>
-			</a>
+					<button type="button" class="btn btn-primary btn-md" id="hideBt" onclick="hide_show"> show </button>
+				</header>
+				<p> <img src="https://s-media-cache-ak0.pinimg.com/originals/2d/c1/24/2dc124c883a8d19dd9d40fc809df10be.jpg" id="anhbia"> </p>
+				<ol class="breadcrumb">
+					<li> <a href="http://localhost:3000/blog"> Home </a> </li>
+					<li class="active"> Blog </li>
+				</ol>
+					<div class="col-sm-2">
+						<div id="lMenu" class="nav-sidebar">
+							<ul class="nav" id="menuList">
+								<li> <a href=""> tanathan </a> </li>
+								<li> <a href=""> something </a> </li>
+								<li> <a href=""> something </a> </li>
+								<li> <a href=""> something </a> </li>
+							</ul>
+						</div>
+					</div>
+				<a> <div id="mainPost">
+						<h2 style="margin-left: 350px;"> Hot Post Today </h2>
+						<div class="col-md-6">
+							<div id="post" class="thumbnail">
+								<a> <img src="http://img.f36.dulich.vnecdn.net/2017/04/11/4-1491880992_660x0.jpg"> </a>
+								<a> <strong style="color: black;"> Nhiếp ảnh gia gây sốt với ảnh cắt ghép các biểu tượng du lịch </strong> </a>
+								<p class="post-info small caps"> Post by anhkiet </p>
+								<div class="post-text small">
+									Rich MrCor tạo nên cơn sốt trên mạng xã hội với những bức ảnh cắt giấy ghép cùng các điểm đến nổi tiếng trên khắp thế giới.
+								</div>
+								<p class="post-info small caps"> Views: 155 </p>
+							</div>
+							<div id="post" class="thumbnail">
+								<a> <img src="http://img.f34.dulich.vnecdn.net/2017/04/04/4-1491272124_660x0.jpg"> </a>
+								<a> <strong style="color: black;"> Vẻ đẹp của Paris hơn 100 năm trước </strong> </a>
+								<p class="post-info small caps"> Post by anhkiet </p>
+								<div class="post-text small">
+									Những con đường, công trình nổi tiếng đã thu hút sự chú ý của du khách khắp nơi trên thế giới từ hơn 100 năm trước như Khải Hoàn Môn, tháp Eiffel và cả tượng Nữ thần Tự do trước khi được đem tặng New York.
+								</div>
+								<p class="post-info small caps"> Views: 155 </p>
+							</div>
+						</div>
+					</div>
+				</a>
+				<footer id="foot">
+					contact me now	
+				</footer>
+			</div>
 		</div>
 	</body>
 </html>
@@ -64,6 +85,25 @@
 
 	h2 {
 		margin-left: 250px;
+	}
+
+		#topNavBar {
+		background-color: black;
+		padding: 14px 14px;
+		text-align: center;
+		display: block;
+	}
+
+	@media only screen and (max-width: 992px){
+		#topNavBar {
+			display: none;
+		}
+	}
+
+	@media only screen and (min-width: 992px){
+		#hideBt {
+			display: none;
+		}
 	}
 
 	.topnav a {
@@ -79,18 +119,32 @@
 	  	color: black;
 	}
 
-	#topNavBar {
-		background-color: black;
-		padding: 14px 14px;
-		text-align: center;
-		display: block;
+	#anhbia {
+		float: center;
+		margin-left: 450px;
+		width: 30%;
+		height: 50%;
 	}
 
 	#lMenu {
-		margin-left: 20px;
-		margin-top: 40px;
-		background-color: #b8c3d6;
-		padding: 10px;
-		width: 100px;
+		width: 100%;
+    	border-right: 1px solid #ddd;
+	}
+
+	footer {
+		padding: 1em;
+		background-color: #d0d5dd;
+		clear: both;
+	    bottom: 0;
+	    width: 100% ;
+	    text-align: center;
+	}
+
+	#btnLogin {
+		float: right;
+	}
+
+	.container {
+		width: 100%;
 	}
 </style>
