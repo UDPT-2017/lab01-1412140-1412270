@@ -1,0 +1,197 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="jquery-3.1.1.min.js"></script>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"> </script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"> </script>
+  		<base href="/blog2">
+		<script type="text/javascript">
+			function hide_show(){
+				var e = document.getElementById("topNavBar");
+				if(e.style.display == 'block')
+					e.style.display = 'none';
+				else
+					e.style.display = 'block';
+			}
+			function hide_show2(){
+				var e = document.getElementById("lMenu");
+				if(e.style.display == 'block')
+					e.style.display = 'none';
+				else
+					e.style.display = 'block';
+			}
+		</script>
+		<title>
+			NewbiInBoostrap
+		</title>
+	</head>
+	<body>
+			<header id="toper">
+				<a> <img src="pictures/node.png" style="float: left; height: 40px; margin-top: 5px; margin-left: 5px;"></a>
+				<div class="topnav" id="topNavBar">
+					<a class="active"> Home </a>
+					<a href="/albums"> Albums </a>
+					<a href="/about"> About </a>
+					<a href="/blog"> Blog </a>
+					<div class="active" id="log" style="float: right; background-color: brown;">
+						<% if(dn == "1") { %>
+							<a id="userLogin" style="color: black; margin: 0;">
+								<%=nick %>
+							</a> 
+							<button type="button" class "btn btn-primary" id="btnLogout" href="/"> Logout </button> <% }
+						  else { %>
+							<button type="button" class "btn btn-primary" id="btnLogin" data-toggle="modal" data-target="#loginModal"> Login </button>
+						<% } %>
+					</div>
+				</div>
+				<button type="button" class="btn btn-primary btn-md" id="hideBt" onclick="hide_show()"> show </button>
+			</header>
+			<div id="opt">
+				<div id="api" style="float: right; margin-top: 5px">
+					<a> <img src="pictures/fb.png" href="facebook.com" style="height: 40px;"></a>
+				</div>
+				<a>
+					<ol class="breadcrumb" style="color:#797f89;">
+						<li> <a href="/"> Home </a> </li>
+						<li> <a href="/blog"> Home </a> </li>
+						<li> <a class="active"> Bài viết </a> </li>
+					</ol>
+				</a>
+			</div>
+				<div class="col-sm-2" >
+					<div id="lMenu" class="nav-sidebar">
+						<ul class="nav" id="menuList">
+							<li> <a href=""> Menu 1 </a> </li>
+							<li> <a href=""> Menu 2  </a> </li>
+							<li> <a href=""> Menu 3 </a> </li>
+							<li> <a href=""> Menu 4  </a> </li>
+						</ul>
+					</div>
+					<button type="button" class="btn btn-primary btn-md" id="hideBt2" onclick="hide_show2()"> show </button>
+				</div>
+				<article>
+					<h3> Vẻ đẹp của Paris hơn 100 năm trước </h3>
+					<b>Những con đường, công trình nổi tiếng đã thu hút sự chú ý của du khách khắp nơi trên thế giới từ hơn 100 năm trước như Khải Hoàn Môn, tháp Eiffel và cả tượng Nữ thần Tự do trước khi được đem tặng New York.</b>
+					<p>Rich McCor (Anh) được biết đến với biệt danh “chàng trai cắt giấy” nổi tiếng trên mạng xã hội Instagram nhờ vào tài cắt giấy sáng tạo của mình. Video trên ghi tại suối nước nóng ở thung lũng Haukadalur qua lăng kính của Rich.</p>
+					<p> <img src="pictures/b21.jpg"> </p>
+					<p> <img src="pictures/b22.jpg"> </p>
+					<p> <img src="pictures/b23.jpg"> </p>
+					<p> <img src="pictures/b24.png"> </p>
+					<p> <img src="pictures/b25.jpg"> </p>
+				</article>
+			<a></a>
+			<div>
+				<form action="" method="POST" enctype="application/x-www-form-urlencoded">
+					<div class="modal fade" id="loginModal" role="dialog" >
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title"> Dang nhap </h4> 
+								</div>
+								<div class="modal-body">
+									<form>
+									    <div class="form-group">
+									    	<label for="nickname">Ten dang nhap:</label>
+									      	<input type="text" class="form-control" name="txtNick" id="nick" placeholder="Nhap ten nguooi dung">
+									    </div>
+									    <div class="form-group">
+									      	<label for="password">Password:</label>
+									      	<input type="password" class="form-control" name="txtPass" id="pass" placeholder="Nhap mat khau">
+									    </div>
+									    <div>
+									    	<input type="submit" class"btn btn-default" value="Dang nhap">
+									    </div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<footer id="foot">
+				contact me now	
+			</footer>
+	</body>
+</html>
+
+<style>
+	#topNavBar {
+		background-color: black;
+		padding: 14px 14px;
+		text-align: center;
+		display: block;
+	}
+
+	@media only screen and (max-width: 992px){
+		#topNavBar {
+			display: none;
+		}
+	}
+
+	@media only screen and (min-width: 992px){
+		#hideBt {
+			display: none;
+		}
+	}
+
+	@media only screen and (max-width: 768px){
+		#lMenu {
+			display: none;
+		}
+	}
+
+	@media only screen and (min-width: 768px){
+		#hideBt2 {
+			display: none;
+		}
+	}
+	.topnav a {
+		background-color: green;
+		padding: 14px 14px;
+		color: white;
+		text-decoration: none;
+		width: auto;
+	}
+
+	.topnav a:hover {
+	 	background-color: white;
+	  	color: black;
+	}
+
+	#anhbia {
+		float: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	#lMenu {
+		width: 100%;
+    	border-right: 1px solid #ddd;
+    	color: #afbacc;
+    	float: left;
+    	margin-top: 50px;
+	}
+
+	footer {
+		padding: 1em;
+	    color: white;
+	    background-color: black;
+	    clear: left;
+	    text-align: center;
+	}
+
+	#btnLogin {
+		float: right;
+	}
+
+	.container {
+		width: 100%;
+	}
+
+	article {
+		margin-left: 230px;
+		margin-right: 50px;
+	}
+</style>

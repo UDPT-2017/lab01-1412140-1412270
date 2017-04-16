@@ -5,13 +5,13 @@
 		<script src="jquery-3.1.1.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<base href="http://www.localhost:3000/albums">
+		<base href="/albums">
 		<script>
-			var port = "process.env.PORT || 3000"
+			var port = "process.env.PORT || 3000";
 			$(document).ready(function(){
 				$("#pic").click(function(){
 					var num = $(this).attr("name");
-					$.get("http://localhost:3000/pic/" + num, function(data){
+					$.get("/pic/" + num, function(data){
 						alert(data);
 					});
 				});
@@ -50,7 +50,7 @@
 		</nav>
 		<h2> ---ALBUMS--- </h2>
 		<ol class="breadcrumb">
-			<li> <a href="http://localhost:3000/"> Home </a> </li>
+			<li> <a href="/"> Home </a> </li>
 			<li class="active"> Albums </li>
 		</ol>
 		<div id="albums">

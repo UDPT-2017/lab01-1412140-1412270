@@ -32,6 +32,20 @@ app.get("/", function(req, res) {
 	console.log("ket noi thanh cong");
 });
 
+app.get("/blog1", function(req, res) {
+	var nick = "";
+	var dn = 0;
+	res.render("blog1", {dn:dn, nick:nick});
+	console.log("ket noi thanh cong");
+});
+
+app.get("/blog2", function(req, res) {
+	var nick = "";
+	var dn = 0;
+	res.render("blog2", {dn:dn, nick:nick});
+	console.log("ket noi thanh cong");
+});
+
 app.get("/albums", function(req, res){
 	res.render("albums", {dn:dn, nick:nick});
 });
