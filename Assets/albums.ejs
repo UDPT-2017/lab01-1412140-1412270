@@ -7,11 +7,11 @@
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<base href="https://kietluu2.herokuapp.com/kietluu2/albums">
 		<script>
+			var port = "process.env.PORT || 3000"
 			$(document).ready(function(){
 				$("#pic").click(function(){
 					var num = $(this).attr("name");
-					$.get("http://localhost:3000/pic/" + num, function(data){
-						alert(data);
+					
 					});
 				});
 			});
