@@ -96,3 +96,22 @@ app.post("/", urlencodedParser, function(req, res){
 		});
 	});
 });
+
+app.get("/pic/:name", function(req, res){
+	var name = req.params.name;
+	pool.connect(function(err, client, done) {
+		if(err) { 
+			return console.error('error fetching client from pool', err);
+		}
+		client.query("update pictures set luotxem = luotxem + 1 where url = '" + name + "'", function(err, result){
+			done();
+			if(err) {
+				console.log("xay ra loi");
+				res.end();
+				return console.error('error running query', err);
+			}
+			console.log("Da cap nhat");
+			res.end();
+		});
+	});
+})
