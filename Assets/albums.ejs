@@ -5,7 +5,7 @@
 		<script src="jquery-3.1.1.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<base href="https://kietluu2.herokuapp.com/kietluu2/albums">
+		<base href="http://www.localhost:3000/albums">
 		<script>
 			var port = "process.env.PORT || 3000"
 			$(document).ready(function(){
@@ -41,10 +41,10 @@
 		<nav class="col-sm-2">
 			<div id="lMenu" class="nav-sidebar">
 				<ul class="nav" id="menuList">
-					<li> <a href=""> tanathan </a> </li>
-					<li> <a href=""> something </a> </li>
-					<li> <a href=""> something </a> </li>
-					<li> <a href=""> something </a> </li>
+					<li> <a href=""> Menu 1 </a> </li>
+					<li> <a href=""> Menu 2  </a> </li>
+					<li> <a href=""> Menu 3 </a> </li>
+					<li> <a href=""> Menu 4  </a> </li>
 				</ul>
 			</div>
 		</nav>
@@ -99,25 +99,87 @@
 			</div> 
 			<div class="col-md-3">
 				<div class="thumbnail" >
-					<a> <img src="pictures/2.jpg"> </a>
+					<a> <img src="pictures/2.jpg" id="img2" onclick="myFunction2()"> </a>
 					<div class="caption">
 						<p> this is me </p>
+					</div>
+				</div>
+				<div class="modal fade" id="albumModal2" role="dialog">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+			          			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			          			<h4 class="modal-title">ALbum 1</h4>
+			        		</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-3">
+										<div class="thumbnail">
+											<a> <img src="pictures/2.jpg" onclick="modalPicture('pictures/2.jpg')" id="pic" name="2.jpg"> </a>
+											<p> KietLuu </p>
+											<p> Views: 3 </p>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="thumbnail">
+											<a> <img src="pictures/22.jpg" onclick="modalPicture('pictures/22.jpg')" id="pic" name="22.jpg"> </a>
+											<p> KietLuu </p>
+											<p> Views: 2 </p>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="thumbnail">
+											<a> <img src="pictures/23.jpg" onclick="modalPicture('pictures/23.jpg')" id="pic" name="23.jpg"> </a>
+											<p> KietLuu </p>
+											<p> Views: 3 </p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3">
-				<div class="thumbnail" >
-					<a> <img src="pictures/4.png"> </a>
+				<div class="thumbnail">
+					<a> <img src="pictures/3.png" id="img3" onclick="myFunction3()"> </a>
 					<div class="caption">
 						<p> this is me </p>
 					</div>
 				</div>
-			</div> 
-			<div class="col-md-3">
-				<div class="thumbnail">
-					<a> <img src="pictures/3.png"> </a>
-					<div class="caption">
-						<p> this is me </p>
+				<div class="modal fade" id="albumModal3" role="dialog">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+			          			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			          			<h4 class="modal-title">ALbum 1</h4>
+			        		</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-3">
+										<div class="thumbnail">
+											<a> <img src="pictures/3.jpg" onclick="modalPicture('pictures/3.jpg')" id="pic" name=".jpg"> </a>
+											<p> KietLuu </p>
+											<p> Views: 3 </p>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="thumbnail">
+											<a> <img src="pictures/32.jpg" onclick="modalPicture('pictures/32.jpg')" id="pic" name="32.jpg"> </a>
+											<p> KietLuu </p>
+											<p> Views: 13 </p>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="thumbnail">
+											<a> <img src="pictures/33.jpg" onclick="modalPicture('pictures/13.jpg')" id="pic" name="33.jpg"> </a>
+											<p> KietLuu </p>
+											<p> Views: 21 </p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div> 
@@ -142,6 +204,12 @@
 			var modal = document.getElementById("myModal");
 			function myFunction(){
 				$("#albumModal1").modal();
+			}
+			function myFunction2(){
+				$("#albumModal2").modal();
+			}
+			function myFunction3(){
+				$("#albumModal3").modal();
 			}
 			function modalPicture(picSrc){
 				modalImg.src = picSrc;
@@ -205,7 +273,9 @@
 	#img01 {
 		margin: auto;
 	    display: block;
-	    max-width: 70%;
+	    width: 60%;
+	    float: center;
+	    height: 70%;
 	}
 
 	#myModal {
@@ -213,8 +283,7 @@
 	    position: fixed; /* Stay in place */
 	    background-color: rgb(0,0,0); /* Fallback color */
 	    background-color: rgba(0,0,0,0.9);
-	    max-width: 70%;
-	    max-height: 80%;
+	    width: 80%;
 	}
 
 	footer {
@@ -223,6 +292,7 @@
 	    background-color: black;
 	    clear: left;
 	    text-align: center;
+
 	}
 /* Modal Content (image) */
 </style>
