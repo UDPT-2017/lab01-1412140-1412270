@@ -1,44 +1,74 @@
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
 		<script src="jquery-3.1.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<base href="/about">
 	</head>
 	<body>
 		<header id="toper">
 			<div class="topnav" id="topNavBar">
-				<a class="active"> Home </a>
-				<a href="/albums"> Albums </a>
+				<a href="/"> Home </a>
+				<a class="/active"> Albums </a>
 				<a href="/about"> About </a>
 				<a href="/blog"> Blog </a>
+				<div class="active" id="log" style="float: right; background-color: brown;">
+					<% if(dn == "1") { %>
+						<a id="userLogin" style="color: black; margin: 0;">
+							<%=nick %>
+						</a> 
+						<button type="button" class "btn btn-primary" id="btnLogout" data-toggle="modal" data-target="#loginModal"> Logout </button> <% }
+					  else { %>
+						<button type="button" class "btn btn-primary" id="btnLogin" data-toggle="modal" data-target="#loginModal"> Login </button>
+					<% } %>
+				</div>
 			</div>
 			<button type="button" class="btn btn-primary btn-md" id="hideBt" onclick="hide_show"> show </button>
 		</header>
+		<nav class="col-sm-2">
+			<div id="lMenu" class="nav-sidebar">
+				<ul class="nav" id="menuList">
+					<li> <a href=""> Menu 1 </a> </li>
+					<li> <a href=""> Menu 2  </a> </li>
+					<li> <a href=""> Menu 3 </a> </li>
+					<li> <a href=""> Menu 4  </a> </li>
+				</ul>
+			</div>
+		</nav>
 		<ol class="breadcrumb">
 			<li> <a href="/"> Home </a> </li>
-			<li class="active"> About </li>
+			<li class="active"> Albums </li>
 		</ol>
-			<nav class="col-sm-2">
-				<div id="lMenu" class="nav-sidebar">
-					<ul class="nav" id="menuList">
-						<li> <a href=""> tanathan </a> </li>
-						<li> <a href=""> something </a> </li>
-						<li> <a href=""> something </a> </li>
-						<li> <a href=""> something </a> </li>
-					</ul>
-				</div>
-			</nav>
-		<h2>
-			THÔNG TIN NHÓM :...
-		</h2>
-		<div id="info">
+		<div id="info" style="margin-left: 230px;">
+		<h1> THÔNG TIN NHÓM 1412270-1412140 </h1>
 			<div id="info1">
 				<h3> THÀNH VIÊN THỨ NHẤT </h3>
 				<p id="name"> Tên thành viên: Lưu Trần Anh Kiệt </p>
 				<p id="code1"> MSSV: 1412270 </p>
 				<p id="email1">  Email: tuilaanhkiet@gmail.com </p>
-				<p > <img id="img1" src="http://static.tumblr.com/bb6f5f264ab1554395c2519c60ed74a9/mudxlsn/F5Una0y78/tumblr_static_e6trxn9ts2gcsksw8oc4ook8w.jpg"> </p>
-				<div id="map" style="width:400px;height:400px;background:yellow"></div>
+				<p> <img id="img1" src="pictures/ak.jpg" style="max-width: 250px;"></div>
+				<script>
+
+					function myMap() {
+						var mapOptions = {
+						    center: new google.maps.LatLng(51.5, -0.12),
+						    zoom: 10,
+						}
+						var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+					}
+				</script>
+				<script 
+					src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap">
+				</script>
+			</div>
+			<div id="info1" style="margin-left: 230px;">
+				<h3> THÀNH VIÊN THỨ HAI </h3>
+				<p id="name"> Tên thành viên: Nguyễn Thị Thu Hà </p>
+				<p id="code1"> MSSV: 1412140 </p>
+				<p id="email1"> </p>
+				<p > <img id="img1" src="pictures/ha.jpg"></div>
 				<script>
 
 					function myMap() {
@@ -58,16 +88,6 @@
 </html>
 
 <style>
-	#info1 {
-		margin-top: 100px;
-		margin-left: 120px;
-	}
-
-	#img1 {
-		height: 50%;
-		width: 25%;
-	}
-
 	#topNavBar {
 		background-color: black;
 		padding: 14px 14px;
@@ -87,6 +107,17 @@
 		}
 	}
 
+	@media only screen and (max-width: 768px){
+		#lMenu {
+			display: none;
+		}
+	}
+
+	@media only screen and (min-width: 768px){
+		#hideBt2 {
+			display: none;
+		}
+	}
 	.topnav a {
 		background-color: green;
 		padding: 14px 14px;
@@ -100,15 +131,38 @@
 	  	color: black;
 	}
 
+	#anhbia {
+		float: center;
+		width: 100%;
+		height: 100%;
+	}
+
 	#lMenu {
-		margin-top: 100px;
 		width: 100%;
     	border-right: 1px solid #ddd;
+    	color: #afbacc;
     	float: left;
-    	margin-left: 10px;
+    	margin-top: 50px;
 	}
-	#info {
-		margin-left: 200px;
 
+	footer {
+		padding: 1em;
+	    color: white;
+	    background-color: black;
+	    clear: left;
+	    text-align: center;
+	}
+
+	#btnLogin {
+		float: right;
+	}
+
+	.container {
+		width: 100%;
+	}
+
+	article {
+		margin-left: 230px;
+		margin-right: 50px;
 	}
 </style>
