@@ -11,7 +11,8 @@
 			$(document).ready(function(){
 				$("#pic").click(function(){
 					var num = $(this).attr("name");
-					
+					$.get("http://localhost:3000/pic/" + num, function(data){
+						alert(data);
 					});
 				});
 			});
