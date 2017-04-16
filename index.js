@@ -5,7 +5,7 @@ app.use(ex.static("public"));
 app.set("view engine", "ejs");
 app.set("views", "./Assets");
 
-server.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3000);
 
 var bodyparser = require('body-parser');
 var urlencodedParser = bodyparser.urlencoded({ extended: false});
